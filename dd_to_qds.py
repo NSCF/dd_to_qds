@@ -1,7 +1,10 @@
 from decimal import Decimal
 
 def dd_qds(ddLat, ddLng):
-    # qds = []
+    # if type(ddLat) == float and type(ddLng) == float:
+    
+    Lat = 'N'
+    Lng = 'E'
 
     # need to fix if there are ','s instead of '.'
     if ',' in ddLat:
@@ -12,9 +15,11 @@ def dd_qds(ddLat, ddLng):
     #get rid of "-"
     ddLat = float(ddLat)
     if ddLat < 0:
+        Lat = 'S'
         ddLat = -1 * ddLat
     ddLng = float(ddLng)
     if ddLng < 0:
+        Lng = 'W'
         ddLng = -1 * ddLng
 
     ddLat = round(ddLat, 5)
@@ -66,8 +71,10 @@ def dd_qds(ddLat, ddLng):
         qds2 = 'D'
     elif 0.75000 <= ddLatdec < 1.00000 and (0.25000 <= ddLngdec < 0.50000 or 0.75000 <= ddLngdec < 1.00000):
         qds2 = 'D'
+    # else:
+    #     raise Exception("Invalid coordinates")
 
-    qds = qds + qds1 + qds2
+    qds = qds + qds1 + qds2 + ' Hemisphere: '+ Lat + Lng
     return(qds)
 
 
