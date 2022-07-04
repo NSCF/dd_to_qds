@@ -37,33 +37,33 @@ def convertQDS(lat, long):
 
     if dec_lat <= 0.24999 and dec_long <= 0.24999:
         print(grid_lat + grid_long +'AA')
-    elif dec_lat <= 0.249 and dec_long >= 0.25 and dec_long <= .49:
+    elif dec_lat <= 0.24999 and dec_long >= 0.25 and dec_long <= 0.49999:
         print(grid_lat + grid_long + 'AB')
-    elif dec_lat >= 0.25 and dec_lat <= 0.49 and dec_long <= 0.249:
+    elif dec_lat >= 0.25 and dec_lat <= 0.49999 and dec_long <= 0.24999:
         print(grid_lat + grid_long + 'AC')
-    elif dec_lat >= 0.25 and dec_lat <= 0.49 and dec_long >= 0.25 and dec_long <= 0.49:
+    elif dec_lat >= 0.25 and dec_lat <= 0.49999 and dec_long >= 0.25 and dec_long <= 0.49999:
         print(grid_lat + grid_long + 'AD')
-    elif dec_lat <= 0.249 and dec_long >= 0.5 and dec_long <= 0.749:
+    elif dec_lat <= 0.24999 and dec_long >= 0.5 and dec_long <= 0.74999:
         print(grid_lat + grid_long + 'BA')
-    elif dec_lat <= 0.249 and dec_long >= 0.75:
+    elif dec_lat <= 0.24999 and dec_long >= 0.75:
         print(grid_lat + grid_long + 'BB')
-    elif dec_lat >= 0.25 and dec_lat <= 0.49 and dec_long >= 0.5 and dec_long <= 0.749:
+    elif dec_lat >= 0.25 and dec_lat <= 0.49 and dec_long >= 0.5 and dec_long <= 0.74999:
         print(grid_lat + grid_long + 'BC')
-    elif dec_lat >= 0.25 and dec_lat <= 0.49 and dec_long >= 0.75:
+    elif dec_lat >= 0.25 and dec_lat <= 0.49999 and dec_long >= 0.75:
         print(grid_lat + grid_long + 'BD')
-    elif dec_lat >= 0.5 and dec_lat <= 0.749 and dec_long <= 0.249:
+    elif dec_lat >= 0.5 and dec_lat <= 0.74999 and dec_long <= 0.24999:
         print(grid_lat + grid_long + 'CA')
-    elif dec_lat >= 0.5 and dec_lat <= 0.749 and dec_long >= 0.25 and dec_long <= 0.49:
+    elif dec_lat >= 0.5 and dec_lat <= 0.74999 and dec_long >= 0.25 and dec_long <= 0.49999:
         print(grid_lat + grid_long + 'CB')
-    elif dec_lat >= 0.75 and dec_long <= 0.249:
+    elif dec_lat >= 0.75 and dec_long <= 0.24999:
         print(grid_lat + grid_long + 'CC')
-    elif dec_lat >= 0.75 and dec_long >= 0.25 and dec_long <= 0.49:
+    elif dec_lat >= 0.75 and dec_long >= 0.25 and dec_long <= 0.49999:
         print(grid_lat + grid_long + 'CD')
-    elif dec_lat >= 0.5 and dec_lat <= 0.749 and dec_long >= 0.5 and dec_long <= 0.749:
+    elif dec_lat >= 0.5 and dec_lat <= 0.74999 and dec_long >= 0.5 and dec_long <= 0.74999:
         print(grid_lat + grid_long + 'DA')
-    elif dec_lat >= 0.5 and dec_lat <= 0.749 and dec_long >= 0.75:
+    elif dec_lat >= 0.5 and dec_lat <= 0.74999 and dec_long >= 0.75:
         print(grid_lat + grid_long + 'DB')
-    elif dec_lat >= 0.75 and dec_lat >= 0.5 and dec_long <= 0.749:
+    elif dec_lat >= 0.75 and dec_lat >= 0.5 and dec_long <= 0.74999:
         print(grid_lat + grid_long + 'DC')
     elif dec_lat >= 0.75 and dec_lat >= 0.75:
         print(grid_lat + grid_long + 'DD')
