@@ -59,7 +59,7 @@ def dd_qds(ddLat, ddLng):
         qds2 = 'A'
     elif 0.50000 <= ddLatdec < 0.75000 and (0.00000 <= ddLngdec < 0.25000 or 0.50000 <= ddLngdec < 0.75000):
         qds2 = 'A'  
-    elif 0.00000 < ddLatdec < 0.25000 and (0.25000 <= ddLngdec < 0.50000 or 0.75000 <= ddLngdec < 1.00000):
+    elif 0.00000 <= ddLatdec < 0.25000 and (0.25000 <= ddLngdec < 0.50000 or 0.75000 <= ddLngdec < 1.00000):
         qds2 = 'B'  
     elif 0.50000 <= ddLatdec < 0.75000 and (0.25000 <= ddLngdec < 0.50000 or 0.75000 <= ddLngdec < 1.00009):
         qds2 = 'B'
