@@ -19,11 +19,11 @@ def DD_to_QDS(lat, long):
     int_long = int(split_long[0])
     dec_long = Decimal(long) % 1
 
-    # convert degree square (numbers before decimal) from int to str
+    # convert degree square from int to str
     grid_lat = str(int_lat)
     grid_long = str(int_long)
 
-    # determine quarter degree designation from int after decimal
+    # combine degree square with quarter degree designation based on decimal value
     if dec_lat < 0.25 and dec_long < 0.25:
         qds = grid_lat + grid_long +'AA'
     elif dec_lat < 0.25 and dec_long >= 0.25 and dec_long < 0.5:
@@ -58,3 +58,4 @@ def DD_to_QDS(lat, long):
         qds = grid_lat + grid_long + 'DD'
 
     return(qds)
+   
