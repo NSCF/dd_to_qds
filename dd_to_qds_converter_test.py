@@ -1,4 +1,4 @@
-from dd_qds_converter import DD_to_QDS
+from dd_to_qds_converter import DD_to_QDS
 
 lat = -31.12750
 long = 19.19194
