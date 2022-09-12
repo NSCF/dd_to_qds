@@ -2,6 +2,9 @@ from decimal import Decimal
 
 def DD_to_QDS(lat, long):
 
+    if lat > 0 or long < 0:
+        raise Exception("invalid coordinates")
+
     # remove '-' & split at decimal point
     if lat < 0:
         pos_lat = -1 * lat
