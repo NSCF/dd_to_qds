@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-def DD_to_QDS(lat, long):
+def dd_to_qds(lat, long):
 
     if lat > 0 or long < 0:
         raise Exception("invalid coordinates")
@@ -26,7 +26,7 @@ def DD_to_QDS(lat, long):
     grid_lat = str(int_lat)
     grid_long = str(int_long)
 
-    # combine degree square with quarter degree designation based on decimal value
+    # combine degree square with quarter degree letters based on decimal value
     if dec_lat < 0.25 and dec_long < 0.25:
         qds = grid_lat + grid_long +'AA'
     elif dec_lat < 0.25 and dec_long >= 0.25 and dec_long < 0.5:
