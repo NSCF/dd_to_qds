@@ -8,17 +8,16 @@ df_missingQDS = pd.read_csv("missingQDS_test.csv")
 #print(df_missingQDS)
 #df_missingQDS["QDS"] = None
 df_missingQDS["QDS"] = None
-df_missingQDS["QDS"] == dd_to_qds(df_missingQDS['decimalLatitude'], df_missingQDS["decimalLongitude"])
-df_missingQDS.to_csv('C:\\Users\\01470358\\Documents\\DevProjects\\dd_to_qds\\missingQDS_newQDS.csv', index = False)
+# df_missingQDS["QDS"] == dd_to_qds(df_missingQDS['decimalLatitude'], df_missingQDS["decimalLongitude"])
+# df_missingQDS.to_csv('C:\\Users\\01470358\\Documents\\DevProjects\\dd_to_qds\\missingQDS_newQDS.csv', index = False)
 
 for index, row in df_missingQDS.iterrows(): 
     #barcode = df_missingQDS.loc[index][0]
     lat = row.loc["decimalLatitude"]
     long = row.loc["decimalLongitude"]
-    #qds = dd_to_qds(lat, long)
-    df_missingQDS["QDS"] = dd_to_qds(df_missingQDS[lat], df_missingQDS[long])
-
-df_missingQDS.to_csv('C:\\Users\\01470358\\Documents\\DevProjects\\dd_to_qds\\missingQDS_newQDS.csv', index = False)
+    qds = dd_to_qds(lat, long)
+    df_missingQDS["QDS"] = qds
+df_missingQDS.to_csv('missingQDS_newQDS.csv', index = False)
 
 # df_missingQDS = pd.read_csv("missingQDS_test.csv")
 # #print(df_missingQDS)
