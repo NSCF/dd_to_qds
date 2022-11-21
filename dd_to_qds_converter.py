@@ -2,7 +2,8 @@ from decimal import Decimal
 
 def dd_to_qds(lat, long):
 
-    if lat > 0 or long < 0:
+    #southern africa and madagascar only
+    if lat > 0 or lat < -35 or long < 0 or long > 51:
         raise Exception("invalid coordinates")
 
     # remove '-' & split at decimal point
