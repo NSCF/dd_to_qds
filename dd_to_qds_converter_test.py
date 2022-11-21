@@ -4,7 +4,7 @@ from dd_to_qds_converter import dd_to_qds
 
 #SETTINGS
 
-filepath = r'C:\Users\engelbrechti\Downloads' #empty string if local directory
+filepath = r'C:\NSCF\Ian\GeorefToolToBODATSA' #empty string if local directory
 filename = "PRE Senecio Marinda_georeferences2022-11-21T14_53_13.368Z.csv"
 latitudeField = 'dwc:decimalLatitude'
 longitudeField = 'dwc:decimalLongitude'
