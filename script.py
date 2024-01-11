@@ -4,10 +4,10 @@ from dd_to_qds_converter import dd_to_qds
 
 #SETTINGS
 
-filepath = r'C:\NSCF\Ian\GeorefToolToBODATSA' #empty string if local directory
-filename = "PRE Iridaceae 2_georeferences2022-11-21T14_45_58.094Z.csv"
-latitudeField = 'dwc:decimalLatitude'
-longitudeField = 'dwc:decimalLongitude'
+filepath = r'C:\NSCFTraining\PythonScripts' #empty string if local directory
+filename = "Bryophyte_Endemics.csv"
+latitudeField = 'Lat'
+longitudeField = 'Long'
 
 #SCRIPT
 file = path.join(filepath,filename)
