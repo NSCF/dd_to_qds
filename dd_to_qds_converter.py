@@ -4,7 +4,7 @@ def dd_to_qds(lat, long):
 
     #southern africa and madagascar only
     if lat > 0 or lat < -35 or long < 0 or long > 51:
-        raise Exception("invalid coordinates")
+        raise Exception("coordinates out of bounds")
 
     # remove '-' & split at decimal point
     if lat < 0:
@@ -24,42 +24,41 @@ def dd_to_qds(lat, long):
     dec_long = Decimal(long) % 1
 
     # convert degree square from int to str
-    grid_lat = str(int_lat)
-    grid_long = str(int_long)
+    qds = str(int_lat) + str(int_long)
 
     # combine degree square with quarter degree letters based on decimal value
     if dec_lat < 0.25 and dec_long < 0.25:
-        qds = grid_lat + grid_long +'AA'
+        qds +='AA'
     elif dec_lat < 0.25 and dec_long >= 0.25 and dec_long < 0.5:
-        qds = grid_lat + grid_long + 'AB'
+        qds += 'AB'
     elif dec_lat >= 0.25 and dec_lat < 0.5 and dec_long < 0.25:
-        qds = grid_lat + grid_long + 'AC'
+        qds += 'AC'
     elif dec_lat >= 0.25 and dec_lat < 0.5 and dec_long >= 0.25 and dec_long < 0.5:
-        qds = grid_lat + grid_long + 'AD'
+        qds += 'AD'
     elif dec_lat < 0.25 and dec_long >= 0.5 and dec_long < 0.75:
-        qds = grid_lat + grid_long + 'BA'
+        qds += 'BA'
     elif dec_lat < 0.25 and dec_long >= 0.75:
-        qds = grid_lat + grid_long + 'BB'
+        qds += 'BB'
     elif dec_lat >= 0.25 and dec_lat < 0.5 and dec_long >= 0.5 and dec_long < 0.75:
-        qds = grid_lat + grid_long + 'BC'
+        qds += 'BC'
     elif dec_lat >= 0.25 and dec_lat < 0.5 and dec_long >= 0.75:
-        qds = grid_lat + grid_long + 'BD'
+        qds += 'BD'
     elif dec_lat >= 0.5 and dec_lat < 0.75 and dec_long < 0.25:
-        qds = grid_lat + grid_long + 'CA'
+        qds += 'CA'
     elif dec_lat >= 0.5 and dec_lat < 0.75 and dec_long >= 0.25 and dec_long < 0.5:
-        qds = grid_lat + grid_long + 'CB'
+        qds += 'CB'
     elif dec_lat >= 0.75 and dec_long < 0.25:
-        qds = grid_lat + grid_long + 'CC'
+        qds += 'CC'
     elif dec_lat >= 0.75 and dec_long >= 0.25 and dec_long < 0.5:
-        qds = grid_lat + grid_long + 'CD'
+        qds += 'CD'
     elif dec_lat >= 0.5 and dec_lat < 0.75 and dec_long >= 0.5 and dec_long < 0.75:
-        qds = grid_lat + grid_long + 'DA'
+        qds += 'DA'
     elif dec_lat >= 0.5 and dec_lat < 0.75 and dec_long >= 0.75:
-        qds = grid_lat + grid_long + 'DB'
+        qds += 'DB'
     elif dec_lat >= 0.75 and dec_long >= 0.5 and dec_long < 0.75:
-        qds = grid_lat + grid_long + 'DC'
+        qds += 'DC'
     elif dec_lat >= 0.75 and dec_long >= 0.75:
-        qds = grid_lat + grid_long + 'DD'
+        qds += 'DD'
 
     return(qds)
    
