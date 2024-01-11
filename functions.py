@@ -1,4 +1,7 @@
 from decimal import Decimal
+import chardet
+import pandas as pd
+import re
 
 def dd_to_qds(lat, long):
 
@@ -61,4 +64,46 @@ def dd_to_qds(lat, long):
         qds += 'DD'
 
     return(qds)
+
+def add_qds(file, latitudeField, longitudeField):
+    print('checking file encoding')
+    with open(file, 'rb') as f:
+        result = chardet.detect(f.read())
+
+    print('reading file')
+    df = pd.read_csv(file, encoding=result['encoding'])
+    df["QDS"] = None
+
+    print('adding QDSs')
+    for index, row in df.iterrows(): 
+        #barcode = df_missingQDS.loc[index][0]
+        lat = row.loc[latitudeField]
+        long = row.loc[longitudeField]
+        if isinstance(lat, str) and isinstance(long, str) and lat  and long and lat.strip() and long.strip():
+
+            #check they are valid numbers
+            try:
+                lat = float(lat)
+                long = float(long)
+            except:
+                print(f'could not convert {lat}, {long} in row {index}: invalid format')
+                continue
+
+            # do the conversion
+            try:
+                qds = dd_to_qds(lat, long)
+                df.loc[index, "QDS"] = qds
+            except Exception as ex:
+                print(f'could not convert {lat}, {long} in row {index}: {str(ex)}')
+                continue
+
+        else:
+            continue
+
+    print('writing out updated file')
+
+    newfile = re.sub(".csv$", '_QDS.csv', file, flags=re.I) 
+    df.to_csv(newfile, index = False)
+
+    print('all done...')
    
