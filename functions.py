@@ -71,7 +71,7 @@ def add_qds(file, latitudeField, longitudeField):
         result = chardet.detect(f.read())
 
     print('reading file')
-    df = pd.read_csv(file, encoding=result['encoding'])
+    df = pd.read_csv(file, encoding=result['encoding'], keep_default_na=False)
     df["QDS"] = None
 
     print('adding QDSs')
@@ -79,24 +79,30 @@ def add_qds(file, latitudeField, longitudeField):
         #barcode = df_missingQDS.loc[index][0]
         lat = row.loc[latitudeField]
         long = row.loc[longitudeField]
-        if isinstance(lat, str) and isinstance(long, str) and lat  and long and lat.strip() and long.strip():
-
-            #check they are valid numbers
-            try:
-                lat = float(lat)
-                long = float(long)
-            except:
-                print(f'could not convert {lat}, {long} in row {index}: invalid format')
-                continue
+        if lat and long:
+            if isinstance(lat, str) and isinstance(long, str):
+                try:
+                    lat = float(lat)
+                    long = float(long)
+                except:
+                    print(f'could not convert {lat}, {long} in row {index}: invalid format')
+                    continue
 
             # do the conversion
-            try:
-                qds = dd_to_qds(lat, long)
-                df.loc[index, "QDS"] = qds
-            except Exception as ex:
-                print(f'could not convert {lat}, {long} in row {index}: {str(ex)}')
+            if lat and long and isinstance(lat, float) and isinstance(long, float):
+                try:
+                    qds = dd_to_qds(lat, long)
+                    df.loc[index, "QDS"] = qds
+                except Exception as ex:
+                    print(f'could not convert {lat}, {long} in row {index}: {str(ex)}')
+                    continue
+            else:
+                print(f'invalid coordinate format in row {index}')
                 continue
 
+        elif lat or long:
+            print(f'missing coordinate value in row {index}')
+            continue
         else:
             continue
 
