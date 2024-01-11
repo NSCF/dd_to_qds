@@ -25,5 +25,5 @@ for index, row in df.iterrows():
         except:
             i = 0 #do nothing
 
-newfilename = filename.replace('.csv', '_QDSUpdates.csv')
+newfilename = filename.replace('.csv', '_QDS.csv')
 df.to_csv(path.join(filepath, newfilename), index = False)
